@@ -19,6 +19,7 @@ class Formo_Core_Driver_Button extends Formo_Driver {
 		$this->_view
 			->set_var('tag', 'input')
 			->attr('class', 'btn')
+			->attr('class', $this->name())
 			->attr('name', $this->name())
 			->attr('value', $value);
 	}
