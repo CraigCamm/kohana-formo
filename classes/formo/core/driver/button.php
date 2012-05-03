@@ -12,15 +12,15 @@ class Formo_Core_Driver_Button extends Formo_Driver {
 	
 	public function html()
 	{
+		$value = ($val = $this->_field->val())
+			? $val
+            : $this->_view->label();
+
 		$this->_view
-			->set_var('tag', 'button')
+			->set_var('tag', 'input')
+			->attr('class', 'btn')
 			->attr('name', $this->name())
-			->attr('value', $this->val());
-		
-		if ( ! $this->_view->text())
-		{
-			$this->_view->text($this->_field->alias());
-		}
+			->attr('value', $value);
 	}
 
 	public function sent()
