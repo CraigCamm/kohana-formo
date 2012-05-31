@@ -240,6 +240,41 @@ abstract class Formo_Core_View extends View {
 	}
 	
 	/**
+     * Retrieve container classes
+	 * 
+	 * @access public
+	 * @return string
+	 */
+	public function container_classes()
+    {
+        // define class string
+        $class_string = "";
+
+        // Get the value of the conatiner_class property
+        $value = $this->_field->get('container_class');
+
+        // Check if we have an array of classes
+        if (is_array($value)) {
+
+            // Look through classes
+            foreach ($value as $class){
+
+                // Add this class to the list of classes
+                $class_string .= $class." ";
+            }
+
+        // we have one single class
+        } else {
+
+            // define the class string to our single value
+            $class_string = $value;
+        }
+
+        // Return our list of classes as space seperated string
+		return $class_string;
+	}
+	
+	/**
 	 * Retrieve editable setting
 	 * 
 	 * @access public
